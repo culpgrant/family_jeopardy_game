@@ -1,15 +1,12 @@
+import os
 import boto3
 import pandas as pd
 import io
-import json
 
-# Read in the AWS Credentials
-with open('credentials.json') as f:
-    cred = json.loads(f.read())
 
 # Read in the CSV File from AWS
-ACCESS_KEY_ID = cred['aws_credentials']['ACCESS_KEY_ID']
-ACCESS_SECRET_KEY = cred['aws_credentials']['ACCESS_SECRET_KEY']
+ACCESS_KEY_ID = os.environ['ACCESS_KEY_ID']
+ACCESS_SECRET_KEY = os.environ['ACCESS_SECRET_KEY']
 BUCKET_NAME = 'mypersonalprojects'
 REGION_NAME = 'us-east-2'
 FILE_NAME = "Jeapordy/game_data.csv"
